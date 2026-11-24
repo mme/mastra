@@ -1,6 +1,6 @@
 ---
 title: "CopilotKit | Agentic UI"
-description: "Connect CopilotKit to Mastra through AG-UI for generative UI, shared application state, frontend tools, human approval, and messaging channels."
+description: "Connect CopilotKit to Mastra through AG-UI for generative UI, shared application state, frontend tools, human approval, messaging channels, and OpenBot."
 packages:
   - '@mastra/core'
 ---
@@ -533,6 +533,14 @@ A turn begins when a user messages the app. Intelligence receives the platform e
 By default, interactive actions live in memory and reset on restart. Back the channel with a durable action and state store (Redis or Postgres) so buttons and per-thread state survive restarts and span multiple instances.
 
 :::
+
+## OpenBot
+
+[OpenBot](https://open.bot) is an open-source, self-hostable workspace for AI coworkers, built on CopilotKit and AG-UI. Register your Mastra agent as a Bot to run it on a schedule, give it connected apps and a browser, and put its actions under the workspace's tool permissions, approvals, and audit log.
+
+OpenBot calls your Mastra server's own API through `@ag-ui/mastra`, so it doesn't use the CopilotKit route registered above and the agent needs no extra endpoint. In OpenBot, create a Bot, choose to bring your own agent, select Mastra as the framework, and enter the address of your Mastra server. The server needs to run one agent, and OpenBot has to be able to reach it.
+
+See the [OpenBot guide for builders](https://open.bot/builders) for the full setup, and [`agent-mastra`](https://github.com/CopilotKit/OpenBot/tree/main/agent-mastra) in the [OpenBot repository](https://github.com/CopilotKit/OpenBot) for a Mastra server that runs as a Bot.
 
 ## Configuration options
 
